@@ -8,19 +8,15 @@
 Если пользователь ответил правильно, поздравьте его и завершите выполнение скрипта.
 */
 
-$condition = true;
-
 do {
     $answer = (int)readline("В каком году в России произошли 2 революции: ");
     switch ($answer) {
         case 1917:
             echo "Поздравляем! Вы совершенно правы.";
-            $condition = false;
-            break;
+            break (2);
         case 1905:
         case 1914:
             echo "Ответ неверен. Тест завершён.";
-            $condition = false;
-            break;
+            break (2);
     }
-} while ($condition);
+} while (true);

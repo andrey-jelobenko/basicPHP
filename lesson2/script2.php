@@ -21,7 +21,7 @@ $totalDuration = 0;
 
 for ($i = 1; $i <= $count; $i++) {
     $task = readline("Какая ${i}-я задача стоит перед вами сегодня? ");
-    $duration = (int)readline("Сколько примерно времени ${i}-я задача займет? ");
+    $duration = (int)readline("Сколько примерно времени {$i}-я задача займет? ");
     $out .= "- {$task} ({$duration}ч)" . PHP_EOL;
     $totalDuration += $duration;
 }
