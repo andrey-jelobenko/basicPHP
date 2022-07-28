@@ -6,20 +6,9 @@
 */
 
 for ($i = 1; $i <= 100; $i++) { 
-    switch (true) {
-        case $i%3 == 0 && $i%5 == 0:
-        // case $i%(3*5) == 0: 
-        // второй вариант условия, но первый мне кажется более наглядным
-            echo "FizzBuzz" . PHP_EOL;
-            break;
-        case $i%3 == 0:
-            echo "Fizz" . PHP_EOL;
-            break;
-        case $i%5 == 0:
-            echo "Buzz" . PHP_EOL;
-            break;
-        default:
-            echo $i . PHP_EOL;
-            break;
-    }
+    $result = "";
+    if($i%3 == 0) $result .= "Fizz";
+    if($i%5 == 0) $result .= "Buzz";
+    if($result == "") $result = $i;
+    echo $result . PHP_EOL;
 }
