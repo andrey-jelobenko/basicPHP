@@ -8,14 +8,22 @@
 Желательно промежуточный не использовать и чтобы как можно меньше итераций.
 */
 
-$source = [1,'2',3,'str',5,0,'',0,null,0];
-$count = count($source);
+/* ДОРАБОТКА
+... не точно условия задал. Вы положились на то, что вторая половина массива не заполнена,
+и рано или поздно array_shift вернет то что даст false, ноль или null,
+в реальности во второй не заполненной половине все же могут бы и не нули, а любые значения, 
+которые должны затереться первой половиной. И у вас получается 10 итераций,
+попробуйте сделать в 5 и учесть что любые данные могут быть в незаполненной части.
+*/
+
+$source = range(1,10);
+$count = count($source) / 2;
+
+$source = array_slice($source, 0, $count );
 
 while ($count) {
-    $interim = array_shift($source);
-    if(!empty($interim)) {
-        array_push($source, $interim, $interim);
-    }
+    $interim = array_pop($source);
+    array_unshift($source,$interim,$interim);
     $count--;
 }
 
