@@ -53,9 +53,8 @@ function findItem(string $item, array $box): bool
 {
     foreach ($box as $value) {
         if (is_array($value)) {
-            $result = findItem($item, $value);
-            if ($result) {
-                return $result;
+            if (findItem($item, $value)) {
+                return true;
             }
         }
         elseif ($value == $item) return true;
